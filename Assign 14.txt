@@ -1,0 +1,126 @@
+ANS 1)
+package Asses14;
+
+public class Catchtry {
+	public static void main(String args[]) {
+		try {
+			int n=Integer.parseInt("abc");
+			System.out.println(n);
+		}catch(NumberFormatException nfe) {
+			System.out.println("Exception handled "+nfe);
+		}
+		
+	}
+
+}
+
+ANS 2)
+package Asses14;
+
+public class CatchMultiple {
+
+	public static void main(String[] args) {		
+		try {
+			int []arr= {1,7,4,3,2};
+			ex1(arr);
+			ex2(arr);
+			
+			
+		}catch(ArithmeticException are){
+			System.out.println("ArithmeticException handled "+are);
+		}
+		catch(ArrayIndexOutOfBoundsException aiob){
+			System.out.println("ArrayIndexOutOfBoundsException handled "+aiob);
+		}
+		
+
+	}
+	private static void ex1(int [] arr) {
+		int z=arr[3]/0;
+		System.out.println(z);
+	}
+	private static void ex2(int [] arr) {
+		int y=arr[7];		
+		System.out.println(y);
+		
+	}
+
+}
+
+ANS 3)   import java.IOException;
+         public class prob3
+		 {
+		   public static void main(String[] args)
+		   {
+		     String str = " ";
+			 System.out.println(str.length());
+		   }
+		 }     // checked Exception
+
+
+         import java.io.RuntimeException;
+		 
+		 public class prob3{
+		 public static void main(String[] args){
+		 int a = 12;
+		 int b = 0;
+		 System.out.println(a/b);
+		 }
+		 }
+		 
+		 for checked exception we dont need to throw an exception but for runtome exception we need to throw an exception.
+
+
+ANS 4)
+package Programs;
+
+public class ExepRethrow {
+        public static void main(String[] args) {
+            try{
+                String s = null;
+                strLen(s);
+            }catch(Exception e){
+                System.out.println("re-thrown exception : "+e);
+            }
+        }
+    static void strLen(String s){
+        try{
+            int length = s.length();
+        }catch(Exception e){
+            System.out.println("exception : "+e);
+            throw e;
+        }
+    }
+    }
+
+ANS 5)
+package Programs;
+
+import java.util.Scanner;
+
+public class ExcepReport {
+    public static void main(String []args) {
+        try {
+            System.out.println("Enter integer 1");
+            int x=new Scanner(System.in).nextInt();
+            System.out.println("Enter integer 2");
+            int y=new Scanner(System.in).nextInt();
+            validate(x,y);
+        } catch (Exception e) {
+            System.out.println(e);;
+        }
+    }
+    private static void validate(int x,int y) throws Exception {
+        if(y==0)
+        {
+            throw new ArithmeticException("y is Zero");
+        }
+        else if(x>=-2147483648 && x<=2147483647 && y>=-2147483648 && y<=2147483647){
+            System.out.println("x/y = "+(x/y));
+        }
+        else{
+            throw new Exception("Not a signed integer");
+        }
+
+    }
+}
